@@ -1,0 +1,29 @@
+<div>
+    <form class="navbar-form navbar-left">
+        <input type="text" class="form-control" placeholder="Summoner" ng-model="summonerName">
+        <span class="input-group-bt">
+         <button type="submit" class="btn btn-default" aria-label="Left Align" ng-click="buscarChampionMasteries()">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+        </span>
+    </form>
+</div>
+<br>
+<br>
+<br>
+<br>
+<div>
+    <img src="img/ajax-loader.gif" alt="loading..." ng-show=cargando >
+</div>
+
+<div class="masteryDivContainer">
+    <div id="ChampionMasteryDiv" ng-repeat="champion in MasteriesData">
+        <div id="marco" ng-class="[champion.colorDiv, champion.marco]">
+            <h4>{{champion.nombreCampeon}}</h4>
+            <img id="fotoChamp" ng-src="{{champion.fotoCampeon}}" ng-attr-title="">
+            <h4>{{champion.formatedChampionPoints}}</h4>
+            <h4>Cofre: {{champion.tieneCofre}}</h4>
+        </div>
+    </div>
+</div>
+

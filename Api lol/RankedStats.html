@@ -1,0 +1,63 @@
+<div id="RankedStatsDiv">
+
+    <form class="navbar-form navbar-left">
+
+        <table>
+            <tr>
+                <th>
+                    <input type="text" class="form-control" placeholder="Summoner" ng-model="summonerName">
+                </th>
+                 <th>
+                    <select id="select" ng-model="season" class="form-control">
+                        <option value="SEASON3">Season 3</option>
+                        <option value="SEASON2014">Season 4</option>
+                        <option value="SEASON2015">Season 5</option>
+                        <option value="SEASON2016">Season 6</option>
+                        <option value="SEASON2017">Season 7</option>
+                        
+                    </select>
+                </th>
+                <th>
+                   <button type="submit" class="btn btn-default" aria-label="Left Align" ng-click="buscarRankedStats()">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+                </th>
+            </tr>
+        </table>
+
+
+    </form>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+<div>
+    <img src="img/ajax-loader.gif" alt="loading..." ng-show=cargando >
+</div>
+    <div>
+        <table class="table table-striped">
+            <tr ng-show=mostrarcabecera>
+                <td class="cabeceraTabla" ng-click="tableOrder='nombreCampeon';order= !order">Campeón</td>
+                <td class="cabeceraTabla" ng-click="tableOrder='winRate';order= !order">WinRate</td>
+                <td class="cabeceraTabla" ng-click="tableOrder='stats.totalSessionsPlayed';order= !order">Partidas jugadas</td>
+                <td class="cabeceraTabla" ng-click="tableOrder='stats.totalSessionsWon';order= !order">Partidas Ganadas</td>
+                <td class="cabeceraTabla" ng-click="tableOrder='stats.totalSessionsLost';order= !order">Partidas Perdidas</td>
+                <td class="cabeceraTabla" ng-click="tableOrder='stats.maxChampionsKilled';order= !order">Maximo de kills en una partida</td>
+                <td class="cabeceraTabla" ng-click="tableOrder='promedioKills';order= !order">KDA</td>
+            </tr>
+            <tr class="cabeceraTabla" ng-repeat="x in rankedStats | orderBy:tableOrder:order">
+                <td>
+                    <img ng-src="{{x.fotoCampeon}}" id="fotoRankedStats">
+                    <br/><small>{{x.nombreCampeon}}</small>
+                </td>
+                <td id="elementoTabla">{{x.winRate}}%</td>
+                <td id="elementoTabla">{{x.stats.totalSessionsPlayed}}</td>
+                <td id="elementoTabla" ng-style="{'color':'green'}">{{x.stats.totalSessionsWon}}</td>
+                <td id="elementoTabla" ng-style="{'color':'red'}">{{x.stats.totalSessionsLost}}</td>
+                <td id="elementoTabla">{{x.stats.maxChampionsKilled}}</td>
+                <td id="elementoTabla">{{x.promedioKills}}/{{x.promedioMuertes}}/{{x.promedioAsistencas}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

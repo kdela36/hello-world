@@ -1,0 +1,25 @@
+<div>
+    <form class="navbar-form navbar-left">
+        <table>
+            <tr>
+                <th>
+                    <input type="text" class="form-control" placeholder="Summoner" ng-model="summonerName">
+                </th>
+                <th>
+                    <button type="submit" class="btn btn-default" aria-label="Left Align" ng-click="buscarLigas()">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </button>
+                </th>
+            </tr>
+        </table>
+        <div id="asd">
+            <div id="DatosLigaDiv" ng-repeat="x in summonerLeagueData">
+                <img ng-src="{{x.imagen}}" alt="">
+                <h1>{{x.name}}</h1>
+                <p>{{x.tier}}</p>
+                <p>{{x.entries[0].division}}</p>
+            </div>
+        </div>
+    </form>
+
+</div>

@@ -1,0 +1,88 @@
+<!--form class="navbar-form navbar-left">
+  <table>
+        <tr>
+            <th>
+                <input type="text" class="form-control" placeholder="Summoner" ng-model="summonerName">
+            </th>
+            <th>
+                <button type="submit" class="btn btn-default" aria-label="Left Align" ng-click="buscarMatchHistory()">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+            </th>
+
+        </tr>
+    </table>
+</form-->
+
+<div class="input-group">
+    <form class="navbar-form navbar-left">
+
+        <input type="text" class="form-control" placeholder="Summoner" ng-model="summonerName">
+        <span class="input-group-bt">
+         <button type="submit" class="btn btn-default" aria-label="Left Align" ng-click="buscarMatchHistory()">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        </button>
+
+        </span>
+
+
+
+
+    </form>
+</div>
+<div>
+    <img src="img/ajax-loader.gif" alt="loading..." ng-show=cargando>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<div id="MatchDataDiv" ng-repeat="games in summonerData" ng-class="games.colorDiv" onload="">
+        <table class="tablaMatchHistory">
+            <tr>
+                <th class="tg-031e" rowspan="3">
+                    <img id="fotoChamp" ng-src="{{games.fotoCampeon}}" ng-attr-title="">
+                </th>
+
+                <th class="tg-031e">
+                    <img class="fotoSpell" ng-src="{{games.fotoSpell1}}">
+                </th>
+
+                <th class="tg-031e" id="datosMatch" rowspan="3">
+                    <h4>{{games.campeon}}</h4>
+                    <h6>{{games.subType}}</h6>
+                    <h5>{{games.stats.championsKilled}}/{{games.stats.numDeaths}}/{{games.stats.assists}}</h5>
+                    <h5>{{games.ipEarned}} ip</h3>
+            </th>
+
+        </tr>
+        <tr>
+            <td class="tg-031e">
+                <img class="fotoSpell" ng-src="{{games.fotoSpell2}}">
+            </td>
+        </tr>
+
+    </table>
+    <table class="fotosItems"> 
+        <tr>
+            <td><img class="fotoItem" ng-src="{{games.fotoitem0}}"></td>
+            <td><img class="fotoItem" ng-src="{{games.fotoitem1}}"></td>
+            <td><img class="fotoItem" ng-src="{{games.fotoitem2}}"></td>
+        </tr>
+        <tr>
+            <td><img class="fotoItem" ng-src="{{games.fotoitem3}}"></td>
+            <td><img class="fotoItem" ng-src="{{games.fotoitem4}}"></td>
+            <td><img class="fotoItem" ng-src="{{games.fotoitem5}}"></td>
+        </tr>
+    </table>
+    <div>  
+    <table class="fecha">
+        <tr>
+            <td class="tg-031e">
+                <h4>{{games.formatedDate}}</h4>
+            </td>
+        </tr>
+    </table>
+    </div>
+</div>

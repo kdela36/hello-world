@@ -1,0 +1,18 @@
+<div>
+   <div class="input-group">
+       <input type="text" class="form-control" placeholder="Clase" ng-model="nombreClase">
+       <span class="input-group-btn">
+           <button class="btn btn-default" type="button" ng-click="buscarCartasPorClase()">Buscar</button>
+       </span>
+   </div>
+  
+    <img ng-src="{{CardData.imgGold}}" -->
+    <table>
+        <tr>
+            <div ng-repeat="card in CardData">
+                <img ng-src="{{card.img}}">
+            </div>
+            
+        </tr>
+    </table>
+</div>
